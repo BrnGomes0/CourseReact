@@ -1,36 +1,28 @@
 import './App.css';
-import { useState, useEffect} from 'react';
-import { Text } from './Text';
+import {Text} from '../src/Text';
+import {useState, useEffect} from 'react'
 
 
-function App() {
+export function App() {
   const [showText, setShowText] = useState(false);
 
-  useEffect(() => {
-    console.log("COMPONENT MOUNTED!"); 
-
-    return () => {
-      console.log("COMPONENT UNMOUNTED!"); 
-    };
-  }, []);
-  return (
+  return(
     <div className='App'>
       <button onClick={() => {
         setShowText(!showText);
-      }}>Show Text</button>
-      {showText && <Text/>}
+      }}>
+        Show Text
+      </button>
+      {showText  && <Text/>}
     </div>
   );
 }
-
-export default App;
-
 /*
-  Components Lifecycle
+  Have Three stages of Component
 
-  mouting
-  updating
-  unmouting
+  Mounting
+  Updating
+  Unmounting
 
-
+  UseEffect --> Control the stage of LifeCycle component
 */
